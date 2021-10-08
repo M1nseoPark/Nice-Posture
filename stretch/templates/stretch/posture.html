@@ -1,10 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Posture</title>
+    <link href="{% static 'stretch/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="https://kit.fontawesome.com/b0978df606.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="row">
+<!--        스트레칭 영상, 제목, 설명-->
+        <div class="col-8">
+            <div id="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/vCDfdqUrt9o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h3 id="title">레그 스프레드</h3>
+            <div id="explain">
+                <h5>두 팔을 몸에 붙이고 바르게 누운 다음 다리를 들어올려 최대한 곧게 폅니다.</h5>
+                <h5>다리를 벌렸다가, 다시 가운데로 붙이세요. 이 운동을 반복합니다.</h5>
+            </div>
+        </div>
 
+<!--        스트레칭 목록-->
+        <div class="col-4">
+            <h4><input type="button" value="레그 스프레드" onclick="change1()"></h4>
+            <h4><input type="button" value="플로어 브릿지" onclick="change2()"></h4>
+            <h4><input type="button" value="플러터 발차기" onclick="change3()"></h4>
+            <h4><input type="button" value="비둘기 포즈" onclick="change4()"></h4>
+        </div>
+    </div>
+
+
+<!--    목록 누르면 내용 바뀌는 기능 자바스크립트로 구현-->
+    <script>
+        var video = document.getElementById("video");
+        var title = document.getElementById("title");
+        var explain = document.getElementById("explain");
+
+        function change1() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/vCDfdqUrt9o\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "레그 스프레드"
+            explain.innerHTML = "<h5>두 팔을 몸에 붙이고 바르게 누운 다음 다리를 들어올려 최대한 곧게 폅니다.</h5>\n" +
+                                "<h5>다리를 벌렸다가, 다시 가운데로 붙이세요. 이 운동을 반복합니다.</h5>"
+        }
+
+        function change2() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/y5f-IZo5AZY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "플로어 브릿지"
+            explain.innerHTML = "<h5>무릎을 구부리고 바닥에 평평하게 누워, 엉덩이를 들어올립니다.</h5>\n" +
+                                "<h5>이 때, 등과 허리는 일직선을 유지해주세요. 이동작은 복부 전체와 허리, 둔부 근육을 강화해줍니다.</h5>"
+        }
+
+        function change3() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/eEG9uXjx4vQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "플러터 발차기"
+            explain.innerHTML = "<h5>똑바로 누워 두 팔을 양 옆에 둡니다. 두 다리를 들어올려 최대한 일자로 유지합니다.</h5>\n" +
+                                "<h5>빠른 속도로 오른쪽 다리를 이로 올리고 동시에 왼쪽 다리를 밑으로 내립니다. 다리를 바꿔 반복하세요.</h5>"
+        }
+
+        function change4() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/_vS1_lmAYYA\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "비둘기 포즈"
+            explain.innerHTML = "<h5>네 발 자세로 시작해 무릎은 엉덩이 밑에, 손은 어깨 밑에 오게 하세요.</h5>\n" +
+                                "<h5>왼쪽 무릎을 앞으로 옮기고 왼발은 오른손과 오른쪽 무릎 사이 바닥에 놓은 후 왼쪽 무릎을 왼쪽 손목 가까이 바닥에 내려 놓으세요.</h5>\n" +
+                                "<h5>오른쪽 다리를 뒤로 쭉 미세요. 팔뚝을 다리 앞 바닥에 놓고 손가락을 쫙 펴고 손바닥이 서로를 향하게 하세요</h5>\n" +
+                                "<h5>이 자세를 몇 초 동안 유지하세요. 이 후 반대방향으로 바꿔서 반복하세요.</h5>"
+        }
+    </script>
 </body>
 </html>

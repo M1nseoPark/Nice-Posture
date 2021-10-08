@@ -1,10 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Knee</title>
+    <link href="{% static 'stretch/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="https://kit.fontawesome.com/b0978df606.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="row">
+<!--        스트레칭 영상, 제목, 설명-->
+        <div class="col-8">
+            <div id="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/iF1tqIaWT5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h3 id="title">한쪽 다리 힙 회전</h3>
+            <div id="explain">
+                <h5>무릎은 엉덩이 아래에, 손은 어깨 바로 아래에 오도록 네발로 엎드리세요.</h5>
+                <h5>숨을 들이 마시고 배가 아래로 축 내려오게 한 후, 어깨를 뒤로 말아 머리를 천장을 향해 들어 올리세요.</h5>
+                <h5>숨을 내쉬며 등을 곡선으로 만들어 위로 향하게 한 후 머리를 아래로 숙이세요. 이 자세를 반복하세요.</h5>
+            </div>
+        </div>
 
+<!--        스트레칭 목록-->
+        <div class="col-4">
+            <h4><input type="button" value="한쪽 다리 힙 회전" onclick="change1()"></h4>
+            <h4><input type="button" value="런지" onclick="change2()"></h4>
+            <h4><input type="button" value="누워서 하는 나비 스트레칭" onclick="change3()"></h4>
+            <h4><input type="button" value="둔근 스트레칭" onclick="change4()"></h4>
+            <h4><input type="button" value="반듯이 누워 햄스트링" onclick="change5()"></h4>
+        </div>
+    </div>
+
+
+<!--    목록 누르면 내용 바뀌는 기능 자바스크립트로 구현-->
+    <script>
+        var video = document.getElementById("video");
+        var title = document.getElementById("title");
+        var explain = document.getElementById("explain");
+
+        function change1() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/iF1tqIaWT5Q\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "한쪽 다리 힙 회전"
+            explain.innerHTML = "<h5>똑바로 서서 힙에 두 손을 올리고 발을 어깨 넓이로 벌린 상태에서 시작하세요.</h5>\n" +
+                                "<h5>허리 높이로 왼쪽 다리를 올려 무릎을 직각으로 구부리세요.\n</h5>\n" +
+                                "<h5>몸을 왼쪽으로 돌렸다가 다시 원위치로 돌아오세요. 다른 쪽으로 운동을 반복하세요. </h5>"
+        }
+
+        function change2() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/wk-FCPrR9sw\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "런지"
+            explain.innerHTML = "<h5>팔굽혀 펴기 자세로 시작합니다. 왼쪽 무릎을 앞으로 가져오고 오른쪽 무릎을 바닥에 내려 놓으세요.</h5>\n" +
+                                "<h5>상체를 들어올리고 두 손을 허리에 올려 놓으세요. 그런 다음 상체를 똑바로 유지하면서 엉덩이를 앞으로 밀어주세요.</h5>\n" +
+                                "<h5>앞 무릎이 발가락보다 앞으로 나가지 않도록 주심하세요. 이 자세를 몇 초 동안 유지하세요. 반대쪽으로 운동을 반복하세요.</h5>"
+        }
+
+        function change3() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/eT2KF-EpnxM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "누워서 하는 나비 스트레칭"
+            explain.innerHTML = "<h5>바닥에 누워 두 발을 붙입니다.</h5>\n" +
+                                "<h5>무릎을 양 옆으로 벌려 이 자세를 유지합니다.</h5>"
+        }
+
+        function change4() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/gE6mJ0VjK7Y\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "둔근 스트레칭"
+            explain.innerHTML = "<h5>똑바로 누워 두 발을 바닥에 평평하게 놓습니다. 왼쪽 발목을 오른쪽 무릎 위에 올려 놓습니다.</h5>\n" +
+                                "<h5>오른쪽 무릎을 들어 올리며 두 손으로 오른쪽 허벅지 뒤쪽을 잡으세요. 상체쪽으로 잡아 당기세요. 반대쪽으로 운동을 반복하세요.</h5>"
+        }
+
+        function change5() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/nuKKayWxeqo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "반듯이 누워 햄스트링"
+            explain.innerHTML = "<h5>똑바로 누워 두 다리를 일자로 뻗고 손을 몸 양쪽에 두세요. 왼쪽 다리를 천장을 향해 들어올리세요.</h5>\n" +
+                                "<h5>두 손으로 허벅지 뒤를 잡으세요. 이자세를 유지하세요. 반대쪽으로 운동을 반복하세요.</h5>"
+        }
+    </script>
 </body>
 </html>

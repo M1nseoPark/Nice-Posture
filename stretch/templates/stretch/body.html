@@ -1,10 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Body</title>
+    <link href="{% static 'stretch/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="https://kit.fontawesome.com/b0978df606.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="row">
+<!--        스트레칭 영상, 제목, 설명-->
+        <div class="col-8">
+            <div id="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/16gbvk9At5U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h3 id="title">팔 올리고 옆구리 늘려주기</h3>
+            <div id="explain">
+                <h5>두 발을 어깨 너비로 벌리고 섭니다. 왼손은 머리 뒤에 두고 오른손은 몸 옆에 둡니다.</h5>
+                <h5>몸을 오른쪽으로 구부려 오른손을 바닥쪽으로 내리세요.</h5>
+                <h5>1초 동안 멈췄다가 시작 위치로 돌아가세요. 다른 쪽으로 바꿔 운동을 반복하세요.</h5>
+            </div>
+        </div>
 
+<!--        스트레칭 목록-->
+        <div class="col-4">
+            <h4><input type="button" value="팔 올리고 옆구리 늘려주기" onclick="change1()"></h4>
+            <h4><input type="button" value="가슴 펴주기 운동" onclick="change2()"></h4>
+            <h4><input type="button" value="코브라 스트레칭" onclick="change3()"></h4>
+            <h4><input type="button" value="나비 포즈 스트레칭" onclick="change4()"></h4>
+            <h4><input type="button" value="삼두근 스트레칭" onclick="change5()"></h4>
+        </div>
+    </div>
+
+
+<!--    목록 누르면 내용 바뀌는 기능 자바스크립트로 구현-->
+    <script>
+        var video = document.getElementById("video");
+        var title = document.getElementById("title");
+        var explain = document.getElementById("explain");
+
+        function change1() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/16gbvk9At5U\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "팔 올리고 옆구리 늘려주기"
+            explain.innerHTML = "<h5>두 발을 어깨 너비로 벌리고 섭니다. 왼손은 머리 뒤에 두고 오른손은 몸 옆에 둡니다.</h5>\n" +
+                                "<h5>몸을 오른쪽으로 구부려 오른손을 바닥쪽으로 내리세요.</h5>\n" +
+                                "<h5>1초 동안 멈췄다가 시작 위치로 돌아가세요. 다른 쪽으로 바꿔 운동을 반복하세요.</h5>"
+        }
+
+        function change2() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/rT7rgXQtDcI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "가슴 펴주기 운동"
+            explain.innerHTML = "<h5>문간에서 런지 포지션을 한 후 팔꿈치가 어깨보다 약간 아래로 오게 팔을 문 틀에 올려 놓고 천천히 가슴을 앞으로 가져오세요. 이 상태를 30~40초 유지하세요.</h5>\n" +
+                                "<h5>그 후 천천히 그 자세에서 빠져 나와 팔을 내리고 어깨를 몇 번 돌리세요.</h5>"
+        }
+
+        function change3() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/JDcdhTuycOI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "코브라 스트레칭"
+            explain.innerHTML = "<h5>엎드려 누운 상태에서 두 손을 어깨 밑에 놓고 팔꿈치를 굽힙니다.</h5>\n" +
+                                "<h5>그리고 가슴을 바닥에서 최대한 멀리 밀어 냅니다. 이 자세를 몇 초 동안 유지하세요.</h5>"
+        }
+
+        function change4() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/OrxjCE_tJ3k\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "나비 포즈 스트레칭"
+            explain.innerHTML = "<h5>두 발을 붙이고 바닥에 앉아 발가락을 손으로 잡습니다.</h5>\n" +
+                                "<h5>무릎을 양 옆으로 벌려 무릎을 아래로 누르세요. 이 자세를 유지하세요.</h5>"
+        }
+
+        function change5() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/yAvpW_zKJmI\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "삼두근 스트레칭"
+            explain.innerHTML = "<h5>왼쪽 손을 등에 가져다 대고 오른손으로 왼쪽 팔꿈치를 잡아 부드럽게 잡아 당기세요.</h5>\n" +
+                                "<h5>이 자세를 몇 초 동안 유지하세요. 반대쪽으로 운동을 반복하세요.</h5>"
+        }
+    </script>
 </body>
 </html>

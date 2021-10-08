@@ -21,4 +21,5 @@ urlpatterns = [
     path('stretch/', include('stretch.urls')),
     path('walk/', include('walk.urls')),
     path('', include('detect.urls')),
+    path('accounts/', include('allauth.urls')),
 ]

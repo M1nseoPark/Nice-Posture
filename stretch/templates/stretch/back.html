@@ -1,10 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Back</title>
+    <link href="{% static 'stretch/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="https://kit.fontawesome.com/b0978df606.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="row">
+<!--        스트레칭 영상, 제목, 설명-->
+        <div class="col-8">
+            <div id="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dllfZZp0k_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h3 id="title">삼각 포즈 스트레칭</h3>
+            <div id="explain">
+                <h5>두 발을 어깨너비보다 살짝 더 넓게 벌린 자세로 서세요, 손바닥이 아래를 향하게 하고 두 팔을 어깨 높이만큼 옆으로 들어 올리세요.</h5>
+                <h5>왼쪽 발은 왼쪽으로 오른발은 왼쪽으로 45도 각도로 돌리세요. 힙을 살짝 오른쪽으로 움직여 왼쪽 손이 바닥을 누를 때까지 상체를 왼쪽으로 굽히세요.</h5>
+                <h5>오른쪽손을 천장을 향해 쭉 펴고 고개를 돌려 오른손을 바라보세요. 이자세를 유지하세요. 반대쪽으로 운동을 반복하세요.</h5>
+            </div>
+        </div>
 
+<!--        스트레칭 목록-->
+        <div class="col-4">
+            <h4><input type="button" value="삼각 포즈 스트레칭" onclick="change1()"></h4>
+            <h4><input type="button" value="몸통 스트레칭" onclick="change2()"></h4>
+            <h4><input type="button" value="강아지 포즈 스트레칭" onclick="change3()"></h4>
+            <h4><input type="button" value="몸통 돌리기 스트레칭" onclick="change4()"></h4>
+            <h4><input type="button" value="앉아서 척추 트위스트" onclick="change5()"></h4>
+        </div>
+    </div>
+
+
+<!--    목록 누르면 내용 바뀌는 기능 자바스크립트로 구현-->
+    <script>
+        var video = document.getElementById("video");
+        var title = document.getElementById("title");
+        var explain = document.getElementById("explain");
+
+        function change1() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dllfZZp0k_8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "삼각 포즈 스트레칭"
+            explain.innerHTML = "<h5>두 발을 어깨너비보다 살짝 더 넓게 벌린 자세로 서세요, 손바닥이 아래를 향하게 하고 두 팔을 어깨 높이만큼 옆으로 들어 올리세요.</h5>\n" +
+                                "<h5>왼쪽 발은 왼쪽으로 오른발은 왼쪽으로 45도 각도로 돌리세요. 힙을 살짝 오른쪽으로 움직여 왼쪽 손이 바닥을 누를 때까지 상체를 왼쪽으로 굽히세요.\n</h5>\n" +
+                                "<h5>오른쪽손을 천장을 향해 쭉 펴고 고개를 돌려 오른손을 바라보세요. 이자세를 유지하세요. 반대쪽으로 운동을 반복하세요. </h5>"
+        }
+
+        function change2() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/f4Qah0bQTIo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "몸통 스트레칭"
+            explain.innerHTML = "<h5>땅에 서서 발을 어깨 넓이로 벌린 후 부드럽고 천천히 몸을 회전 시키세요.</h5>\n" +
+                                "<h5>이 운동은 등과 힙을 스트레칭 시켜 줍니다.</h5>"
+        }
+
+        function change3() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/EC7RGJ975iM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "강아지 포즈 스트레칭"
+            explain.innerHTML = "<h5>네 발 자세로 시작해 무릎은 엉덩이 밑에, 손은 어깨 바로 밑에 오게 하세요.</h5>\n" +
+                                "<h5>다리를 일자로 쭉 펴고 엉덩이를 들어 올려 거꾸로 된 V자 모양을 만드세요.</h5>\n" +
+                                "<h5>두 발을 벌리고 손가락을 벌리세요. 체중을 다시 다리로 옮기세요. 이자세를 유지하세요.</h5>"
+        }
+
+        function change4() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/xnfdgHZXZ9Y\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "몸통 돌리기 스트레칭"
+            explain.innerHTML = "<h5>두 손을 마주 잡고 머리 위로 들어 올립니다. 두 팔로 시계 방향으로 큰 원을 그립니다.</h5>\n" +
+                                "<h5>반대쪽으로 운동을 반복하세요.</h5>"
+        }
+
+        function change5() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/7CKr-RgOcIc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "앉아서 척추 트위스트 스트레칭"
+            explain.innerHTML = "<h5>땅에 양반 다리로 앉으세요. 왼쪽 손을 오른쪽 무릎 위에 놓고 오른 손은 뒤로 바닥에 놓으세요.</h5>\n" +
+                                "<h5>상체를 천천히 오른쪽으로 비트세요. 몇 초 동안 그 자세를 유지하세요. 반대쪽으로 운동을 반복하세요.</h5>"
+        }
+    </script>
 </body>
 </html>

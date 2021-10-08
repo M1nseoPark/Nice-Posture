@@ -3,12 +3,13 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Neck Shoulder</title>
     <link href="{% static 'stretch/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
     <script src="https://kit.fontawesome.com/b0978df606.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="row">
+<!--        스트레칭 영상, 제목, 설명-->
         <div class="col-8">
             <div id="video">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/2NOsE-VPpkE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -20,6 +21,7 @@
             </div>
         </div>
 
+<!--        스트레칭 목록-->
         <div class="col-4">
             <h4><input type="button" value="위아래로 끄덕이기" onclick="change1()"></h4>
             <h4><input type="button" value="좌우로 돌리기" onclick="change2()"></h4>
@@ -29,6 +31,8 @@
         </div>
     </div>
 
+
+<!--    목록 누르면 내용 바뀌는 기능 자바스크립트로 구현-->
     <script>
         var video = document.getElementById("video");
         var title = document.getElementById("title");
@@ -53,6 +57,20 @@
             title.innerHTML = "어깨 돌리기"
             explain.innerHTML = "<h5>두팔을 양 옆에 두고 앉거나 섭니다.</h5>\n" +
                                 "<h5>어깨를 돌려 귀쪽으로 올렸다가 다시 뒤로 돌려 힘을 주었다가 밑으로 내립니다. 운동을 반복합니다.</h5>"
+        }
+
+        function change4() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/3D1yeeTaoBQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "등 뒤로 손 깍지 끼기"
+            explain.innerHTML = "<h5>두 발을 어깨 너비 만큼 벌리고 섭니다.</h5>\n" +
+                                "<h5>두 손을 등 뒤로 돌려 깍지를 낍니다. 그리고 팔꿈치를 뒤로 당겨 팔을 쭉 폅니다. 그 자세를 몇 초 동안 유지합니다.</h5>"
+        }
+
+        function change5() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/1DkN-aMl6H4\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "바닥 슬라이드"
+            explain.innerHTML = "<h5>똑바로 누워 무릎을 굽히고 발바닥을 바닥 위에 올려 놓습니다. 두 팔을 머리 위로 쭉 뻗습니다.</h5>\n" +
+                                "<h5>팔의 윗부분을 90도 각도로 밑으로 슬라이드 했다가 다시 위로 슬라이드합니다. 운동을 반복합니다.</h5>"
         }
     </script>
 </body>
