@@ -3,8 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>산책로 추천</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7yUrMo4NRmNvcF_vyxBoHuZsikOgqz7Q"></script>
+    <script>
+        $(function() {
+            // Geolocation API에 액세스할 수 있는지를 확인
+            if (navigator.geolocation) {
+                //위치 정보를 얻기
+                navigator.geolocation.getCurrentPosition (function(pos) {
+                    $('#latitude').html(pos.coords.latitude);     // 위도
+                    $('#longitude').html(pos.coords.longitude); // 경도
+                });
+            } else {
+                alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+            }
+        });
+    </script>
 </head>
 <body>
+    <!--사용자 현재 위치-->
+    <ul>
+        <li>위도:<span id="latitude"></span></li>
+        <li>경도:<span id="longitude"></span></li>
+    </ul>
+
     <h1>산책로 추천</h1>
     <h3><a href="/walk/beginner/">초급</a></h3>
     <h3><a href="/walk/intermediate/">중급</a></h3>

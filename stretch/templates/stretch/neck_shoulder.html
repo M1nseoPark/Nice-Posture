@@ -1,10 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="{% static 'stretch/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="https://kit.fontawesome.com/b0978df606.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="row">
+        <div class="col-8">
+            <div id="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2NOsE-VPpkE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h3 id="title">위, 아래로 끄덕이기</h3>
+            <div id="explain">
+                <h5>턱을 가슴 쪽으로 쭉 잡아 당겨 몇 초동안 그 자세를 유지하세요.</h5>
+                <h5>이번에는 고개를 들어 천장을 바라보세요. 그 자세를 몇 초 동안 유지하세요. 운동을 반복하세요.</h5>
+            </div>
+        </div>
 
+        <div class="col-4">
+            <h4><input type="button" value="위아래로 끄덕이기" onclick="change1()"></h4>
+            <h4><input type="button" value="좌우로 돌리기" onclick="change2()"></h4>
+            <h4><input type="button" value="어깨 돌리기" onclick="change3()"></h4>
+            <h4><input type="button" value="등 뒤로 손깍지 끼기" onclick="change4()"></h4>
+            <h4><input type="button" value="바닥 슬라이드" onclick="change5()"></h4>
+        </div>
+    </div>
+
+    <script>
+        var video = document.getElementById("video");
+        var title = document.getElementById("title");
+        var explain = document.getElementById("explain");
+
+        function change1() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/2NOsE-VPpkE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "위, 아래로 끄덕이기"
+            explain.innerHTML = "<h5>턱을 가슴 쪽으로 쭉 잡아 당겨 몇 초동안 그 자세를 유지하세요.</h5>\n" +
+                                "<h5>이번에는 고개를 들어 천장을 바라보세요. 그 자세를 몇 초 동안 유지하세요. 운동을 반복하세요.</h5>"
+        }
+
+        function change2() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/2NOsE-VPpkE\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "좌우로 돌리기"
+            explain.innerHTML = "<h5>머리를 왼쪽으로 돌려 몇 초 동안 그 자세를 유지하세요.</h5>\n" +
+                                "<h5>이번에는 머리를 오른쪽으로 돌려 다시 몇 초 동안 유지하세요. 운동을 반복하세요.</h5>"
+        }
+
+        function change3() {
+            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/cJXquDX3DcM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+            title.innerHTML = "어깨 돌리기"
+            explain.innerHTML = "<h5>두팔을 양 옆에 두고 앉거나 섭니다.</h5>\n" +
+                                "<h5>어깨를 돌려 귀쪽으로 올렸다가 다시 뒤로 돌려 힘을 주었다가 밑으로 내립니다. 운동을 반복합니다.</h5>"
+        }
+    </script>
 </body>
 </html>
