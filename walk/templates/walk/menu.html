@@ -6,30 +6,60 @@
     <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7yUrMo4NRmNvcF_vyxBoHuZsikOgqz7Q"></script>
     <script>
-        $(function() {
-            // Geolocation API에 액세스할 수 있는지를 확인
-            if (navigator.geolocation) {
-                //위치 정보를 얻기
-                navigator.geolocation.getCurrentPosition (function(pos) {
-                    $('#latitude').html(pos.coords.latitude);     // 위도
-                    $('#longitude').html(pos.coords.longitude); // 경도
-                });
-            } else {
-                alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-            }
+        var latitude = 0;
+        var longitude = 0;
+
+        // 현재 위치의 위도와 경도 반환해주는 함수
+        navigator.geolocation.getCurrentPosition(function(pos) {
+            latitude = pos.coords.latitude;
+            longitude = pos.coords.longitude;
+            alert("현재 위치는 : " + latitude + ", "+ longitude);
         });
+
+
+        // 위도와 경도로 두 장소 간 거리 계산해주는 함수
+        function getDistanceFromLatLonInKm(lat1, lng1, lat2, lng2) {
+            function deg2rad(deg) {
+                return deg * (Math.PI/180)
+            }
+            var R = 6371; // Radius of the earth in km
+            var dLat = deg2rad(lat2-lat1); // deg2rad below
+            var dLon = deg2rad(lng2-lng1);
+            var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            var d = R * c; // Distance in km
+            return d;
+        }
+
+        // window.onload = function() {
+        //     showPark();
+        // }
+        //
+        // for (var i = 0; i < parks.length; i++) {
+        //         document.write(parks[i].latitude);
+        // }
+        //
+        // var distance = [];
+        // function showPark() {
+        //     distance = [];
+        //
+        //
+        // }
     </script>
 </head>
 <body>
-    <!--사용자 현재 위치-->
-    <ul>
-        <li>위도:<span id="latitude"></span></li>
-        <li>경도:<span id="longitude"></span></li>
-    </ul>
 
     <h1>산책로 추천</h1>
-    <h3><a href="/walk/beginner/">초급</a></h3>
-    <h3><a href="/walk/intermediate/">중급</a></h3>
-    <h3><a href="/walk/senior/">고급</a></h3>
+
+    <table>
+        <tr>
+            <th>이름</th>
+        </tr>
+        {% for p in parks %}
+            <tr>
+                <td>{{p.name}}</td>
+            </tr>
+        {%endfor%}
+    </table>
 </body>
 </html>
