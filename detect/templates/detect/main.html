@@ -64,6 +64,18 @@
 			h1.textContent = "00:00:00";
 			sec = 0; min = 0; hrs = 0;
 		}
+
+        var temp = location.href.split("?");
+		var set_time = temp[1].split(':')
+        var set_hrs = set_time[0];   // 00
+		var set_min = set_time[1];   // 01
+
+		set_hrs = set_hrs.replace(/(^0+)/,"");
+		set_min = set_min.replace(/(^0+)/,"");
+		alert(set_min);
+		if (set_hrs == hrs && set_min == min) {
+		    alert("경고경고")
+        }
 	</script>
 </body>
 </html>
