@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Main</title>
 </head>
 <body>
     <h1>내 화면 </h1>
@@ -10,5 +10,60 @@
     <h3><a href="/walk/">산책</a></h3>
     <h3><a href="/use/">이용시간</a></h3>
     <h3><a href="/setting/">설정</a></h3>
+
+<!--	스톱워치-->
+	<h1 id="stopwatch"><time>00:00:00</time></h1>
+	<button id="start">start</button>
+	<button id="stop">stop</button>
+	<button id="reset">reset</button>
+
+
+<!--	스톱워치 구현-->
+<!--	모델 연결되면 start, stop, reset 버튼 뺄 생각입니다!-->
+	<script>
+		var h1 = document.getElementById('stopwatch');
+		var start = document.getElementById('start');
+		var stop = document.getElementById('stop');
+		var reset = document.getElementById('reset');
+
+		var sec = 0;
+		var min = 0;
+		var hrs = 0;
+		var t;
+
+		function tick() {
+			sec++;
+			if (sec >= 60) {
+				sec = 0;
+				min++;
+				if (min >= 60) {
+					min = 0;
+					hrs++;
+				}
+			}
+		}
+
+		function timer() {
+			t = setTimeout(add, 1000);
+		}
+
+		function add() {
+			tick();
+			h1.textContent = (hrs > 9 ? hrs : "0" + hrs)
+					+ ":" + (min > 9 ? min : "0" + min)
+					+ ":" + (sec > 9 ? sec : "0" + sec);
+			timer();
+		}
+
+		timer();
+		start.onclick = timer;
+		stop.onclick = function() {
+			clearTimeout(t);
+		}
+		reset.onclick = function() {
+			h1.textContent = "00:00:00";
+			sec = 0; min = 0; hrs = 0;
+		}
+	</script>
 </body>
 </html>
