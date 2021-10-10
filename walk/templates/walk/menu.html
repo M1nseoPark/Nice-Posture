@@ -16,7 +16,7 @@
         navigator.geolocation.getCurrentPosition(function(pos) {
             latitude = pos.coords.latitude;
             longitude = pos.coords.longitude;
-            alert("현재 위치는 : " + latitude + ", "+ longitude);
+            // alert("현재 위치는 : " + latitude + ", "+ longitude);
         });
 
 
@@ -55,28 +55,95 @@
         //     getTableData();
         //
         //     for (var i = 0; i < result.length; i++) {
-        //         result[i]['distance'] = getDistanceFromLatLonInKm(latitude, longitude, result[i]['latitude'], result[i]['longitude']);
+        //         result[i]['distance'] = getDistanceFromLatLonInKm(latitude, longitude, result[i]['latitude'], result[i]['longitude']).toFixed(2);
         //     }
-        //
-        //     console.log(result);
         // }
         //
         //
         // // 거리에 따라 배열 정렬
         // function dataSort() {
+        //     var dataTable = document.getElementById("dataTable");
         //     getDistance();
         //
         //     result.sort(function(a, b) {
         //         return a['distance'] - b['distance'];
-        //     })
+        //     });
+        //
+        //     console.log(result);
+        //
+        //     dataTable.style.visibility = "hidden";  // html 테이블 숨기기
+        // }
+        //
+        //
+        // window.onload = function () {
+        //     dataSort();
+        //
+        //     document.getElementById("name1").innerHTML = result[0]['name'];
+        //     document.getElementById("address1").innerHTML = result[0]['address'];
+        //     document.getElementById("distance1").innerHTML = result[0]['distance'] + " km";
+        //     document.getElementById("image1").src = result[0]['image'];
+        //
+        //     document.getElementById("name2").innerHTML = result[1]['name'];
+        //     document.getElementById("address2").innerHTML = result[1]['address'];
+        //     document.getElementById("distance2").innerHTML = result[1]['distance'] + " km";
+        //     document.getElementById("image2").src = result[1]['image'];
+        //
+        //     document.getElementById("name3").innerHTML = result[2]['name'];
+        //     document.getElementById("address3").innerHTML = result[2]['address'];
+        //     document.getElementById("distance3").innerHTML = result[2]['distance'] + " km";
+        //     document.getElementById("image3").src = result[2]['image'];
+        //
+        //     document.getElementById("name4").innerHTML = result[3]['name'];
+        //     document.getElementById("address4").innerHTML = result[3]['address'];
+        //     document.getElementById("distance4").innerHTML = result[3]['distance'] + " km";
+        //     document.getElementById("image4").src = result[3]['image'];
+        //
+        //     document.getElementById("name5").innerHTML = result[4]['name'];
+        //     document.getElementById("address5").innerHTML = result[4]['address'];
+        //     document.getElementById("distance5").innerHTML = result[4]['distance'] + " km";
+        //     document.getElementById("image5").src = result[4]['image'];
         // }
     </script>
 </head>
 <body>
 
-    <h1>산책로 추천</h1>
+<!--    <h1>산책로 추천</h1>-->
 
-<!--    <input type="button" value="방법1" onclick="dataSort()"/>-->
+<!--    <div>-->
+<!--        <h4 id="name1">name</h4>-->
+<!--        <h4 id="address1">address</h4>-->
+<!--        <h4 id="distance1">distance</h4>-->
+<!--        <image id="image1" src="*" width="300"></image>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <h4 id="name2">name</h4>-->
+<!--        <h4 id="address2">address</h4>-->
+<!--        <h4 id="distance2">distance</h4>-->
+<!--        <image id="image2" src="*" width="300"></image>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <h4 id="name3">name</h4>-->
+<!--        <h4 id="address3">address</h4>-->
+<!--        <h4 id="distance3">distance</h4>-->
+<!--        <image id="image3" src="*" width="300"></image>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <h4 id="name4">name</h4>-->
+<!--        <h4 id="address4">address</h4>-->
+<!--        <h4 id="distance4">distance</h4>-->
+<!--        <image id="image4" src="*" width="300"></image>-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <h4 id="name5">name</h4>-->
+<!--        <h4 id="address5">address</h4>-->
+<!--        <h4 id="distance5">distance</h4>-->
+<!--        <image id="image5" src="*" width="300"></image>-->
+<!--    </div>-->
+
 
 <!--    <table id="dataTable">-->
 <!--        <tr>-->
@@ -96,5 +163,6 @@
 <!--            </tr>-->
 <!--        {%endfor%}-->
 <!--    </table>-->
+
 </body>
 </html>
