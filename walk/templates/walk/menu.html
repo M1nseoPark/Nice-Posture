@@ -72,81 +72,51 @@
         }
 
 
-        // // html 테이블에서 js 배열로 값 저장
-        // function getTableData() {
-        //     var table = document.getElementById('dataTable');
-        //
-        //     for (var i = 1; i < table.rows.length; i++) {
-        //         var obj = {};
-        //         for (var j = 0; j < table.rows[i].cells.length; j++) {
-        //             var k = table.rows[0].cells[j].innerText;
-        //             obj[k] = table.rows[i].cells[j].innerText;
-        //         }
-        //         result.push(obj);
-        //     }
-        // }
-        //
-        //
-        // // 현재 위치와 장소 사이 거리 저장
-        // function getDistance() {
-        //     getTableData();
-        //
-        //     for (var i = 0; i < result.length; i++) {
-        //         result[i]['distance'] = getDistanceFromLatLonInKm(latitude, longitude, result[i]['latitude'], result[i]['longitude']).toFixed(2);
-        //     }
-        // }
-        //
-        //
-        // // 거리에 따라 배열 정렬
-        // function dataSort() {
-        //     var dataTable = document.getElementById("dataTable");
-        //     getDistance();
-        //
-        //     result.sort(function(a, b) {
-        //         return a['distance'] - b['distance'];
-        //     });
-        //
-        //     console.log(result);
-        //
-        //     dataTable.style.visibility = "hidden";  // html 테이블 숨기기
-        // }
+        // html 테이블에서 js 배열로 값 저장
+        function getTableData() {
+            var table = document.getElementById('dataTable');
+
+            for (var i = 1; i < table.rows.length; i++) {
+                var obj = {};
+                for (var j = 0; j < table.rows[i].cells.length; j++) {
+                    var k = table.rows[0].cells[j].innerText;
+                    obj[k] = table.rows[i].cells[j].innerText;
+                }
+                result.push(obj);
+            }
+        }
+
+
+        // 현재 위치와 장소 사이 거리 저장
+        function getDistance() {
+            getTableData();
+
+            for (var i = 0; i < result.length; i++) {
+                result[i]['distance'] = getDistanceFromLatLonInKm(latitude, longitude, result[i]['latitude'], result[i]['longitude']).toFixed(2);
+            }
+        }
+
+
+        // 거리에 따라 배열 정렬
+        function dataSort() {
+            var dataTable = document.getElementById("dataTable");
+            getDistance();
+
+            result.sort(function(a, b) {
+                return a['distance'] - b['distance'];
+            });
+
+            console.log(result);
+
+            dataTable.style.visibility = "hidden";  // html 테이블 숨기기
+        }
     </script>
   </head>
 
   <body>
-    <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                  <h4 class="text-white">About</h4>
-                  <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                  <h4 class="text-white">Contact</h4>
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                    <li><a href="#" class="text-white">Like on Facebook</a></li>
-                    <li><a href="#" class="text-white">Email me</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="navbar navbar-dark bg-dark shadow-sm">
-            <div class="container">
-              <a href="#" class="navbar-brand d-flex align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                <strong>Album</strong>
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-          </div>
-    </header>
+    {% include 'walk/navbar.html' %}
 
-    <main>
+    <main style="font-family: 'Noto Sans KR'; margin-top: 90px; margin-bottom: 100px;">
         <!--  머리말-->
           <section class="py-2 text-center container">
             <div class="row py-lg-5">
@@ -255,36 +225,28 @@
           </div>
     </main>
 
-        <footer class="text-muted py-5">
-          <div class="container">
-            <p class="float-end mb-1">
-              <a href="#">Back to top</a>
-            </p>
-            <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-            <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-          </div>
-        </footer>
+    {% include 'detect/footer.html' %}
 
 
         <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-<!--        <table id="dataTable">-->
-<!--            <tr>-->
-<!--                <th>name</th>-->
-<!--                <th>address</th>-->
-<!--                <th>latitude</th>-->
-<!--                <th>longitude</th>-->
-<!--                <th>image</th>-->
-<!--            </tr>-->
-<!--            {% for p in parks %}-->
-<!--            <tr>-->
-<!--                <td>{{p.name}}</td>-->
-<!--                <td>{{p.address}}</td>-->
-<!--                <td>{{p.latitude}}</td>-->
-<!--                <td>{{p.longitude}}</td>-->
-<!--                <td>{{p.image}}</td>-->
-<!--            </tr>-->
-<!--            {%endfor%}-->
-<!--        </table>-->
+        <table id="dataTable">
+            <tr>
+                <th>name</th>
+                <th>address</th>
+                <th>latitude</th>
+                <th>longitude</th>
+                <th>image</th>
+            </tr>
+            {% for p in parks %}
+            <tr>
+                <td>{{p.name}}</td>
+                <td>{{p.address}}</td>
+                <td>{{p.latitude}}</td>
+                <td>{{p.longitude}}</td>
+                <td>{{p.image}}</td>
+            </tr>
+            {%endfor%}
+        </table>
 
     <script>
         window.onload = function () {
