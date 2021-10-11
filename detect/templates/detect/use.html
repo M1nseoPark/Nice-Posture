@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Dashboard Template · Bootstrap v5.1</title>
+    <title>Use</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -29,6 +29,11 @@
         user-select: none;
       }
 
+      .log-in {
+        margin-top: 20%;
+        text-align: center;
+      }
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -36,9 +41,14 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
     <link href="{% static 'detect/css/dashboard.css' %}" rel="stylesheet">
+
+    <script>
+      function move() {
+        location.href = "../"
+      }
+    </script>
   </head>
 
   <body>
@@ -56,11 +66,12 @@
       </div>
     </header>
 
+    {% if user.is_authenticated %}
     <div class="container-fluid">
       <div class="row" style="padding-left: 30px;">
         <main class="ms-sm-auto px-md-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3 border-bottom">
-            <h1 class="h2">님의 컴퓨터 이용시간</h1>
+            <h1 class="h2">{{ user }}님의 컴퓨터 이용시간</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2" style="padding-right: 10px;">
                 <button type="button" class="btn btn-sm btn-outline-secondary">이용시간</button>
@@ -78,7 +89,12 @@
         </main>
       </div>
     </div>
-
+    {% else %}
+    <div class="log-in">
+      <h3>로그인이 필요합니다</h3>
+      <button type="button" class="btn btn-dark" style="margin-top: 10px;" onclick="move()">메인으로</button>
+    </div>
+    {% endif %}
 
     <script src="{% static 'detect/bootstrap/bootstrap.bundle.min.js' %}"></script>
 
