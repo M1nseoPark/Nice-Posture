@@ -5,7 +5,7 @@ def main(request):
     return render(request, 'detect/main.html')
 
 def start(request):
-    return render(request, 'detect/start.html')
+    return render(request, 'detect/index.html')
 
 def guide(request):
     return render(request, 'detect/guide.html')
