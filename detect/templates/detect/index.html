@@ -1,6 +1,7 @@
-
 <!Doctype html>
-<html lang="en">
+{% load socialaccount %}
+{% load static %}
+<html lang="ko">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,8 @@
     <title>NICE POSTURE</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
-
+    <link href="{% static 'detect/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <script src="https://kit.fontawesome.com/b0978df606.js" crossorigin="anonymous"></script>
     
 
     <!-- Bootstrap core CSS 건들면 안됩니다 ! -->
@@ -27,6 +29,12 @@
 
 
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+      body {
+        font-family: 'Noto Sans KR';
+      }
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -121,222 +129,283 @@
     }
   }
     </style>
-
-    
-    <!-- 상단 메뉴바 -->
-
   </head>
+
   <body>
-    
-  <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">NICE POSTURE </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#explain">explain</a>
-            <!-- 상단 바의 메뉴 누르면 해당 창으로 이동 -->
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Developer">LOG</a>
-          </li>
+  <!-- 상단 메뉴바 -->
+    <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">NICE POSTURE </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-            <a class="nav-link" href="start.html">GAGAGA</a>
-          </li>
-          
-        </ul>
-        
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#explain">explain</a>
+              <!-- 상단 바의 메뉴 누르면 해당 창으로 이동 -->
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="start.html">GAGAGA</a>
+            </li>
+
+          </ul>
+
+        </div>
       </div>
+
+<!--      로그인-->
+      <div class="container" style="padding-left: 800px;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% if user.socialaccount_set.all.0.get_avatar_url %}
+                            <img class="rounded-circle" width="25px" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="">
+                            {% else %}
+                            <img class="rounded-circle" width="25px" src="https://avatars.dicebear.com/api/croodles/{self.author.email}.svg">
+                            {% endif %}
+                            &nbsp;
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">
+                            Log In
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="font-family: 'Noto Sans KR'">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel"><i class="fas fa-sign-in-alt"></i>&nbsp Log In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a role="button" class="btn btn-block btn-sm btn-outline-dark" href="{% provider_login_url 'google' %}">
+                                <i class="fab fa-google"></i>&nbsp&nbsp Log in with Google
+                            </a>
+                            <a role="button" class="btn btn-block btn-sm btn-outline-dark" href="/accounts/login/">
+                                <i class="far fa-envelope"></i>&nbsp&nbsp Log in with E-mail
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a role="button" class="btn btn-outline-dark btn-block btn-sm" href="/accounts/signup/">
+                                <i class="far fa-envelope"></i>&nbsp&nbsp Sign Up with E-mail
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </nav>
-</header>
+  </header>
 
-<main>
+  <main>
 
-  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">  <!-- 슬라이드 첫번째 이미지 -->
-        <img src="https://cdn.pixabay.com/photo/2017/10/10/21/49/youtuber-2838945__340.jpg" class="d-block w-100" alt="...">
-        
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">  <!-- 슬라이드 첫번째 이미지 -->
+          <img src="https://cdn.pixabay.com/photo/2017/10/10/21/49/youtuber-2838945__340.jpg" class="d-block w-100" alt="...">
 
-        <div class="container">
-          <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h1>Example headline.</h1>
+              <p>Some representative placeholder content for the first slide of the carousel.</p>
+              <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">   <!-- 슬라이드 두번째 이미지 -->
+          <img src="https://cdn.pixabay.com/photo/2014/10/22/17/25/stretching-498256_960_720.jpg" class="d-block w-100" alt="...">
+
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p>Some representative placeholder content for the second slide of the carousel.</p>
+              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">       <!-- 슬라이드 세번째 이미지 -->
+          <img src="https://cdn.pixabay.com/photo/2017/08/06/12/52/woman-2592247_960_720.jpg" class="d-block w-100" alt="...">
+
+          <div class="container">
+            <div class="carousel-caption text-end">
+              <h1>One more for good measure.</h1>
+              <p>Some representative placeholder content for the third slide of this carousel.</p>
+              <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item">   <!-- 슬라이드 두번째 이미지 -->
-        <img src="https://cdn.pixabay.com/photo/2014/10/22/17/25/stretching-498256_960_720.jpg" class="d-block w-100" alt="...">
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+
+
+      <!-- explain part-->
+
+      <div class="row featurette" id="explain" style="padding-left: 70px;">
+        <div class="col-md-7">
+          <h4 class="featurette-heading"> 자세가 틀어지면 경고를 줍니다 </h4>
+
+          <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+        </div>
+        <div class="col-md-4">
+          <img src="https://thumbs.dreamstime.com/z/correct-sitting-computer-posture-office-ergonomics-work-desk-proper-position-neck-back-pain-healthy-correct-218451118.jpg" alt="" style="width: 500px; height: 500px;">
+
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img src="https://cdn.pixabay.com/photo/2019/05/18/14/42/jogging-4211946_960_720.jpg" alt="" style="width: 500px; height: 500px;">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+        </div>
+        <div class="col-md-5">
+          <img src="https://cdn.pixabay.com/photo/2018/01/01/01/57/woman-3053489_960_720.jpg" alt="" style="width: 500px; height: 500px;">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+      <!-- 개발진 소개 -->
+      <div class="container marketing" id="Developer" style="padding-left: 70px;">
+
+
+      <div class="row">
+  <!--      박민서-->
+        <div class="col-lg-6">
+          <img src="http://52.79.217.76/media/article/%EB%B0%95%EB%AF%BC%EC%84%9C.jpg" class="bd-placeholder-img rounded-circle"
+               style="width:140px;height:140px;padding-bottom: 10px;" alt="">
+          <h3>Class 4 박민서</h3>
+          <div>
+              <ul>
+                  <li style="font-weight: bold;">CAPTAIN</li>
+                  <li>back-end developer</li>
+              </ul>
           </div>
         </div>
-      </div>
-      <div class="carousel-item">       <!-- 슬라이드 세번째 이미지 -->
-        <img src="https://cdn.pixabay.com/photo/2017/08/06/12/52/woman-2592247_960_720.jpg" class="d-block w-100" alt="...">
 
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+  <!--      김유진-->
+        <div class="col-lg-6">
+          <img src="http://52.79.217.76/media/article/%EA%B9%80%EC%9C%A0%EC%A7%84.jpg" class="bd-placeholder-img rounded-circle"
+               style="width:140px;height:140px;padding-bottom: 10px;" alt="">
+          <h3>Class 4 김유진</h3>
+          <div>
+              <ul>
+                  <li>AI developer</li>
+                  <li>collect learning-data</li>
+                  <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
+              </ul>
           </div>
         </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
-
-
- 
-
-
-    <!-- explain part-->
-
-
-
-    <div class="row featurette" id="explain">
-      <div class="col-md-7">
-        <h2 class="featurette-heading"> 자세가 틀어지면 경고를 줍니다 </h2>
-
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
-      </div>
-      <div class="col-md-5">
-        <img src="https://thumbs.dreamstime.com/z/correct-sitting-computer-posture-office-ergonomics-work-desk-proper-position-neck-back-pain-healthy-correct-218451118.jpg" alt="" style="width: 500px; height: 500px;">
-
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
-      </div>
-      <div class="col-md-5 order-md-1">
-        <img src="https://cdn.pixabay.com/photo/2019/05/18/14/42/jogging-4211946_960_720.jpg" alt="" style="width: 500px; height: 500px;">
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
-      </div>
-      <div class="col-md-5">
-        <img src="https://cdn.pixabay.com/photo/2018/01/01/01/57/woman-3053489_960_720.jpg" alt="" style="width: 500px; height: 500px;">
-      </div>
-    </div>
-
-    <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
-     <!-- 개발진 소개 -->
-
-  <div class="container marketing" id="Developer">
-
-    
-    <div class="row">
-      <div class="col-lg-6">
-        <img src="http://52.79.217.76/media/article/%EB%B0%95%EB%AF%BC%EC%84%9C.jpg" class="bd-placeholder-img rounded-circle"
-             style="width:140px;height:140px" alt="">
-        
-        <h2>Class 4 박민서</h2>
-        <div>
-            <ul>
-                <li style="font-weight: 700;">CAPTAIN</li>
-                <li>back-end developer</li>
-                <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
-            </ul>
+  <!--      김연상-->
+        <div class="col-lg-6">
+          <img src="http://52.79.217.76/media/article/%EA%B9%80%EC%97%B0%EC%83%81.jpg" class="bd-placeholder-img rounded-circle"
+               style="width:140px;height:140px;padding-bottom: 10px;" alt="">
+          <h3>Class 3 김연상</h3>
+          <div>
+              <ul>
+                  <li>front-end developer</li>
+                  <li>UI/UX design</li>
+                  <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
+              </ul>
+          </div>
         </div>
-        
-      </div>
-      <div class="col-lg-6">
-        <img src="http://52.79.217.76/media/article/%EA%B9%80%EC%9C%A0%EC%A7%84.jpg" class="bd-placeholder-img rounded-circle"
-             style="width:140px;height:140px" alt="">
 
-        <h2>Class 4 김유진</h2>
-        <div>
-            <ul>
-                <li>AI developer</li>
-                <li>collect learning-data</li>
-                <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
-            </ul>
-        </div>        
-      </div>
-      <div class="col-lg-6">
-        <img src="http://52.79.217.76/media/article/%EA%B9%80%EC%97%B0%EC%83%81.jpg" class="bd-placeholder-img rounded-circle"
-             style="width:140px;height:140px" alt="">
-        <h2>Class 3 김연상</h2>
-        <div>
-            <ul>
-                <li>front-end developer</li>
-                <li>UI/UX design</li>
-                <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
-            </ul>
-        </div>  
-        
-      </div>
-      <div class="col-lg-6">
-        <img src="http://52.79.217.76/media/article/%EC%88%9C%ED%98%84%EC%9D%B4%ED%98%95_kl9WFkA.jpg" class="bd-placeholder-img rounded-circle"
-             style="width:140px;height:140px" alt="">
-        <h2>Class 5 황순현</h2>
-        <div>
-            <ul>
-                <li>story-board</li>
-                <li>collect data</li>
-                <li>make 'PPT'</li>
-                <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
-            </ul>
-        </div>          
-      </div>
-    </div><!-- /.row -->
-    
-
-  </div><!-- /.container -->
-  <hr>
+  <!--      황순현-->
+        <div class="col-lg-6">
+          <img src="http://52.79.217.76/media/article/%EC%88%9C%ED%98%84%EC%9D%B4%ED%98%95_kl9WFkA.jpg" class="bd-placeholder-img rounded-circle"
+               style="width:140px;height:140px;padding-bottom: 10px;" alt="">
+          <h3>Class 5 황순현</h3>
+          <div>
+              <ul>
+                  <li>story-board</li>
+                  <li>collect data</li>
+                  <li>make 'PPT'</li>
+                  <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
+              </ul>
+          </div>
+        </div>
+      </div><!-- /.row -->
 
 
-  <!-- FOOTER -->
-  <footer class="container">
-    
-    <p style="font-weight: bold; font-size: 25px; text-align: center; font-weight: 900"> 광주인공지능사관학교 - '난리나' Team </p>
-    <h5 style="text-align: center; font-weight: 500;">NICE POSTURE</h5>
-  </footer>
-</main>
+    </div><!-- /.container -->
+    <hr>
+
+
+    <!-- FOOTER -->
+    <footer class="container">
+
+      <p style="font-weight: bold; font-size: 25px; text-align: center; font-weight: 900"> 광주인공지능사관학교 - '난리나' Team </p>
+      <h5 style="text-align: center; font-weight: 500;">NICE POSTURE</h5>
+    </footer>
+  </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 
-      
   </body>
 </html>

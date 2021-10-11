@@ -5,6 +5,3 @@ from .models import Park
 def menu(request):
     parks = Park.objects.all()
     return render(request, 'walk/menu.html', {"parks": parks})
-
-def menu2(request):
-    return render(request, 'walk/index.html')
