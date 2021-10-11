@@ -49,190 +49,94 @@
         }
       }
 
-  /* Carousel base class */
-    .carousel {
-    margin-bottom: 4rem;
-  }
-  /* Since positioning the image, we need to help out the caption */
-    .carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
-  }
+      /* Carousel base class */
+        .carousel {
+        margin-bottom: 4rem;
+      }
+      /* Since positioning the image, we need to help out the caption */
+        .carousel-caption {
+        bottom: 3rem;
+        z-index: 10;
+      }
 
-  /* Declare heights because of positioning of img element */
-    .carousel-item {
-    height: 32rem;
-  }
-    .carousel-item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    height: 32rem;
-  }
-
-
-  /* MARKETING CONTENT
-  -------------------------------------------------- */
-
-  /* Center align the text within the three columns below the carousel */
-    .marketing .col-lg-4 {
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-    .marketing h2 {
-    font-weight: 400;
-  }
-  /* rtl:begin:ignore */
-    .marketing .col-lg-4 p {
-    margin-right: .75rem;
-    margin-left: .75rem;
-  }
-  /* rtl:end:ignore */
+      /* Declare heights because of positioning of img element */
+        .carousel-item {
+        height: 32rem;
+      }
+        .carousel-item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 32rem;
+      }
 
 
-  /* Featurettes
-  ------------------------- */
+      /* MARKETING CONTENT
+      -------------------------------------------------- */
 
-    .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-  }
+      /* Center align the text within the three columns below the carousel */
+        .marketing .col-lg-4 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+        .marketing h2 {
+        font-weight: 400;
+      }
+      /* rtl:begin:ignore */
+        .marketing .col-lg-4 p {
+        margin-right: .75rem;
+        margin-left: .75rem;
+      }
+      /* rtl:end:ignore */
 
-  /* Thin out the marketing headings */
-    .featurette-heading {
-    font-weight: 300;
-    line-height: 1;
-    /* rtl:remove */
-    letter-spacing: -.05rem;
-  }
+
+      /* Featurettes
+      ------------------------- */
+
+        .featurette-divider {
+        margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+      }
+
+      /* Thin out the marketing headings */
+        .featurette-heading {
+        font-weight: 300;
+        line-height: 1;
+        /* rtl:remove */
+        letter-spacing: -.05rem;
+      }
 
 
-  /* RESPONSIVE CSS
-  -------------------------------------------------- */
+      /* RESPONSIVE CSS
+      -------------------------------------------------- */
 
-  @media (min-width: 40em) {
-    /* Bump up size of carousel content */
-    .carousel-caption p {
-      margin-bottom: 1.25rem;
-      font-size: 1.25rem;
-      line-height: 1.4;
-    }
+      @media (min-width: 40em) {
+        /* Bump up size of carousel content */
+        .carousel-caption p {
+          margin-bottom: 1.25rem;
+          font-size: 1.25rem;
+          line-height: 1.4;
+        }
 
-    .featurette-heading {
-      font-size: 50px;
-    }
-  }
+        .featurette-heading {
+          font-size: 50px;
+        }
+      }
 
-  @media (min-width: 62em) {
-    .featurette-heading {
-      margin-top: 7rem;
-    }
-  }
+      @media (min-width: 62em) {
+        .featurette-heading {
+          margin-top: 7rem;
+        }
+      }
     </style>
-
-
-    <!-- 상단 메뉴바 -->
-
   </head>
+
+
   <body>
 
-      <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">NICE POSTURE </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#explain">explain</a>
-                <!-- 상단 바의 메뉴 누르면 해당 창으로 이동 -->
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="start.html">GAGAGA</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-<!--        로그인  -->
-        <div class="container" style="padding-left: 800px;">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        {% if user.is_authenticated %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {% if user.socialaccount_set.all.0.get_avatar_url %}
-                                <img class="rounded-circle" width="25px" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" alt="">
-                                {% else %}
-                                <img class="rounded-circle" width="25px" src="https://avatars.dicebear.com/api/croodles/{self.author.email}.svg">
-                                {% endif %}
-                                &nbsp;
-                                {{ user.username }}
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
-                            </div>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">
-                                Log In
-                            </a>
-                        </li>
-                        {% endif %}
-                    </ul>
-                </div>
-        </div>
-      </nav>
-
-
-      <!-- Login Modal -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog" style="font-family: 'Noto Sans KR'">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="loginModalLabel"><i class="fas fa-sign-in-alt"></i>&nbsp Log In</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <a role="button" class="btn btn-block btn-sm btn-outline-dark" href="{% provider_login_url 'google' %}">
-                                    <i class="fab fa-google"></i>&nbsp&nbsp Log in with Google
-                                </a>
-                                <a role="button" class="btn btn-block btn-sm btn-outline-dark" href="/accounts/login/">
-                                    <i class="far fa-envelope"></i>&nbsp&nbsp Log in with E-mail
-                                </a>
-                            </div>
-                            <div class="col-md-6">
-                                <a role="button" class="btn btn-outline-dark btn-block btn-sm" href="/accounts/signup/">
-                                    <i class="far fa-envelope"></i>&nbsp&nbsp Sign Up with E-mail
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    {% include 'detect/navbar.html' %}
 
     <main>
-
       <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -241,14 +145,14 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">  <!-- 슬라이드 첫번째 이미지 -->
-            <img src="https://cdn.pixabay.com/photo/2017/10/10/21/49/youtuber-2838945__340.jpg" class="d-block w-100" alt="...">
+            <img src="https://images.unsplash.com/photo-1588865876768-f9e265a1d38f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80" class="d-block w-100" alt="...">
 
 
             <div class="container">
                 <div class="carousel-caption text-start">
-                    <h1>Nice Posture에 오신 것을 환영합니다.</h1>
+                    <h1 style="font-weight: bold;">NICE POSTURE에 오신 것을 환영합니다.</h1>
                     <p>컴퓨터 사용중 올바른 자세교정을 통해 신체 건강을 유지해 보세요.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#">Get Start</a></p>
+                    <p><a class="btn btn-lg btn-secondary" href="/main/">Get Start</a></p>
                 </div>
             </div>
           </div>
@@ -257,7 +161,7 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>스트레칭 추천</h1>
+                    <h1 style="font-weight: bold;">스트레칭 추천</h1>
                     <p>올바르지 않은 자세를 고쳐주기 위해 쉽게 따라할 수 있는 스트레칭 영상을 제공합니다.</p>
                 </div>
             </div>
@@ -267,7 +171,7 @@
 
             <div class="container">
                 <div class="carousel-caption text-end">
-                    <h1>산책로 추천</h1>
+                    <h1 style="font-weight: bold;">산책로 추천</h1>
                     <p>잠깐의 휴식시간을 이용하여 주변 산책로를 따라 가벼운 운동을 즐겨보세요.</p>
                 </div>
             </div>
@@ -288,62 +192,54 @@
 
         <div class="row featurette" id="explain" style="padding-left: 60px;">
             <div class="col-md-7">
-                <h2 class="featurette-heading"> 바른 자세를 유지하도록 도움을 줍니다. </h2>
+                <h2 class="featurette-heading">컴퓨터 사용 시간을 측정합니다.</h2>
                 <br>
-                <p class="lead" style= "color: grey"> 컴퓨터 사용시 올바른 자세를 유지하도록 돕기 위해 구부정한 자세 또는 올바르지 않은 자세가 감지되었을때 메세지로 알려드립니다.</p>
+                <p class="lead" style= "color: grey">실사간 얼굴 인식을 통해 컴퓨터 사용 시간을 측정합니다.<br>사용자가 설정한 시간에 도달하거나 화면을 너무 가까이 보고 있다면 메시지로 알려드립니다.</p>
             </div>
-          <div class="col-md-5">
-            <img src="https://thumbs.dreamstime.com/z/correct-sitting-computer-posture-office-ergonomics-work-desk-proper-position-neck-back-pain-healthy-correct-218451118.jpg" alt="" style="width: 500px; height: 500px;">
+          <div class="col-md-4">
+            <img src="https://pixabay.com/get/gf7b36c784a715ec231fe323cfd7cff7db920531e50563f29cd04ccc6183a59c88710dac2c33a0d7509b551914a8b3ffd7400d7d5ad7ad1101f24e792123b8a90afff543c5ce5cb3f6f4341f16cd23abb_1920.jpg" alt="" style="width: 500px; height: 500px;">
 
           </div>
         </div>
 
         <hr class="featurette-divider">
 
-        <div class="row featurette">
-          <div class="col-md-7">
-              <h2 class="featurette-heading"> 스트레칭을 통한 운동을 권유합니다. </h2>
-              <br>
-              <p class="lead" style="color: grey"> 목, 어깨뿐만 아니라 허리, 무릎, 등, 전신에 걸쳐 총 6가지 카테고리별 스트레칭 영상을 추천해줌으로써 서비스 이용자들은 영상을 보며 동작을 보다 쉽게 따라할 수 있습니다. </p>
-              <li style="color: grey">자세교정 <br> <span>레그 스프레드 , 플로어 브릿지, 플러터 발차기...</span></li>
-              <li style="color: grey">목 및 어깨 <br> <span>위 아래로 끄덕이기, 좌우로 돌리기, 어깨 돌리기...</span></li>
-              <li style="color: grey">허리 <br> <span>고양이 소 포즈, 슈퍼맨 및 수영선수, 크로스 터치 뻗기...</span></li>
-              <li style="color: grey">무릎 <br> <span>한쪽 다리 힙 회전, 런지, 누워서하는 나비 스트레칭...</span></li>
-              <li style="color: grey">등 <br> <span>삼각 포즈 스트레칭, 몸통 스트레칭, 강아지 포즈 스트레칭...</span></li>
-              <li style="color: grey">전신 <br> <span>팔 올리고 옆구리 늘려주기, 가슴 펴주기, 코브라 스트레칭...</span></li>
-          </div>
+        <div class="row featurette" style="padding-left: 60px;">
           <div class="col-md-5 order-md-1">
             <img src="https://cdn.pixabay.com/photo/2018/01/01/01/57/woman-3053489_960_720.jpg" alt="" style="width: 500px; height: 500px;">
           </div>
+          <div class="col-md-7 order-md-2" style="padding-right: 60px;">
+              <h2 class="featurette-heading">스트레칭을 통한 운동을 권유합니다.</h2>
+              <br>
+              <p class="lead" style="color: grey"> 목, 어깨뿐만 아니라 허리, 무릎, 등, 전신에 걸쳐 총 6가지 카테고리별 스트레칭 영상을 추천해줌으로써 서비스 이용자들은 영상을 보며 동작을 보다 쉽게 따라할 수 있습니다. </p>
+          </div>
         </div>
 
         <hr class="featurette-divider">
 
-        <div class="row featurette">
+        <div class="row featurette" style="padding-left: 60px;">
           <div class="col-md-7">
-              <h2 class="featurette-heading"> 주변 산책로를 추천합니다. </h2>
+              <h2 class="featurette-heading">주변 산책로를 추천합니다.</h2>
               <br>
               <p class="lead" style="color: grey"> 장시간 컴퓨터 사용으로 인한 스트레스와 누적된 피로회복을 위해 추천된 산책로를 바탕으로 일상생활에서 잠깐이나마 신체 건강 증진을 가벼운 운동을 권유합니다. </p>
           </div>
-          <div class="col-md-5 order-md-2">
+          <div class="col-md-5">
             <img src="https://cdn.pixabay.com/photo/2019/05/18/14/42/jogging-4211946_960_720.jpg" alt="" style="width: 500px; height: 500px;">
           </div>
         </div>
 
         <hr class="featurette-divider">
 
+
         <!-- /END THE FEATURETTES -->
-         <!-- 개발진 소개 -->
-
-      <div class="container marketing" id="Developer">
-
-
+        <!-- 개발진 소개 -->
+      <div class="container marketing" id="Developer" style="padding-left: 80px; margin-bottom: 80px;">
         <div class="row">
     <!--       박민서 -->
-          <div class="col-lg-6">
+          <div class="col-lg-6" style="padding-bottom: 50px;">
             <img src="http://52.79.217.76/media/article/%EB%B0%95%EB%AF%BC%EC%84%9C.jpg" class="bd-placeholder-img rounded-circle"
                  style="width:140px;height:140px" alt="">
-            <h3>Class 4 박민서</h3>
+            <h3 style="margin-top: 10px;">class 4. 박민서</h3>
             <div>
                 <ul>
                     <li style="font-weight: bold;">CAPTAIN</li>
@@ -353,15 +249,13 @@
           </div>
 
     <!--      김유진  -->
-          <div class="col-lg-6">
+          <div class="col-lg-6" style="padding-bottom: 50px;">
             <img src="http://52.79.217.76/media/article/%EA%B9%80%EC%9C%A0%EC%A7%84.jpg" class="bd-placeholder-img rounded-circle"
                  style="width:140px;height:140px" alt="">
-            <h3>Class 4 김유진</h3>
+            <h3 style="margin-top: 10px;">class 4. 김유진</h3>
             <div>
                 <ul>
                     <li>AI developer</li>
-                    <li>collect learning-data</li>
-                    <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
                 </ul>
             </div>
           </div>
@@ -370,7 +264,7 @@
           <div class="col-lg-6">
             <img src="http://52.79.217.76/media/article/%EA%B9%80%EC%97%B0%EC%83%81.jpg" class="bd-placeholder-img rounded-circle"
                  style="width:140px;height:140px" alt="">
-            <h2>Class 3 김연상</h2>
+            <h3 style="margin-top: 10px;">class 3. 김연상</h3>
             <div>
                 <ul>
                     <li>front-end developer</li>
@@ -384,7 +278,7 @@
           <div class="col-lg-6">
             <img src="http://52.79.217.76/media/article/%EC%88%9C%ED%98%84%EC%9D%B4%ED%98%95_kl9WFkA.jpg" class="bd-placeholder-img rounded-circle"
                  style="width:140px;height:140px" alt="">
-            <h2>Class 5 황순현</h2>
+            <h3 style="margin-top: 10px;">class 5. 황순현</h3>
             <div>
                 <ul>
                     <li>story-board</li>
@@ -395,20 +289,10 @@
             </div>
           </div>
         </div><!-- /.row -->
-
-
       </div><!-- /.container -->
-      <hr>
-
-
-      <!-- FOOTER -->
-      <footer class="container">
-
-        <p style="font-weight: bold; font-size: 25px; text-align: center; font-weight: 900"> 광주인공지능사관학교 - '난리나' Team </p>
-        <h5 style="text-align: center; font-weight: 500;">NICE POSTURE</h5>
-      </footer>
     </main>
 
+    {% include 'detect/footer.html' %}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
