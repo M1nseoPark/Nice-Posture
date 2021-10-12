@@ -16,6 +16,8 @@ from pathlib import Path
 
 import pymysql
 
+import my_settings
+
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,8 +29,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+env_list = dict()
+
+local_env = open(os.path.join(BASE_DIR, '.env'))
+
+while True:
+    line = local_env.readline()
+    if not line:
+        break
+    line = line.replace('\n', '')
+    start = line.find('=')
+    key = line[:start]
+    value = line[start+1:]
+    env_list[key] = value
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3^7%k@#4-j0!(8_=cj@_!1gnb=y3(1i$40#-j8h*7ava6sz5pi'
+SECRET_KEY = env_list['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -90,18 +106,7 @@ WSGI_APPLICATION = 'temp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'park',
-        # 'USER': 'root',
-        # 'PASSWORD': 'alstj@99',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '3306'
-    }
-}
+DATABASES = my_settings.DATABASES
 
 
 # Password validation
