@@ -95,7 +95,7 @@
 
     <div class="text-center text-white bg-dark d-flex w-100 h-100 p-3 mx-auto flex-column">
       <div class="row">
-
+<!--        메뉴바-->
         <div class="col-lg-4 d-flex flex-column flex-shrink-0 bg-dark" style="width: 4.5rem; margin-top: 70px; margin-left: 20px;">
             <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
               <li class="menu-item">
@@ -121,27 +121,27 @@
             </ul>
         </div>
 
-        <div class="col-lg-6" style="margin-top: 200px; text-align: center; margin-left: 250px;">
+<!--        카메라-->
+        <div class="col-lg-6" style="margin-top: 200px; text-align: center; margin-left: 260px; font-family: 'Noto Sans KR';">
           <img src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Ftarget.scene7.com%2Fis%2Fimage%2FTarget%2FGUEST_97e2afa5-3cd4-4548-9cc1-1724117740a3&type=a340" class="bd-placeholder-img rounded-circle"
                style="width:140px;height:140px" alt="">
-
-          <h2>camera</h2>
+          <h2 style="font-weight: bold; margin-top: 10px;">CAMERA</h2>
           <div>
               <ul>
-                  <li style="font-weight: 700;">Recording.</li>
-                  <li><h1 id="stopwatch"><time>00:00:00</time></h1>
-                    <button id="start">start</button>
-                    <button id="stop">stop</button>
-                    <button id="reset">reset</button>
+                  <li style="font-weight: 700; margin-right: 20px;">Recording.</li>
+                  <li style="margin-right: 20px;"><h1 id="stopwatch"><time>00:00:00</time></h1>
+<!--                    <button id="start">start</button>-->
+<!--                    <button id="stop">stop</button>-->
+<!--                    <button id="reset">reset</button>-->
 
 
                 <!--	스톱워치 구현-->
                 <!--	모델 연결되면 start, stop, reset 버튼 뺄 생각입니다!-->
                     <script>
                         var h1 = document.getElementById('stopwatch');
-                        var start = document.getElementById('start');
-                        var stop = document.getElementById('stop');
-                        var reset = document.getElementById('reset');
+                        // var start = document.getElementById('start');
+                        // var stop = document.getElementById('stop');
+                        // var reset = document.getElementById('reset');
 
                         var sec = 0;
                         var min = 0;
@@ -173,14 +173,14 @@
                         }
 
                         timer();
-                        start.onclick = timer;
-                        stop.onclick = function() {
-                            clearTimeout(t);
-                        }
-                        reset.onclick = function() {
-                            h1.textContent = "00:00:00";
-                            sec = 0; min = 0; hrs = 0;
-                        }
+                        // start.onclick = timer;
+                        // stop.onclick = function() {
+                        //     clearTimeout(t);
+                        // }
+                        // reset.onclick = function() {
+                        //     h1.textContent = "00:00:00";
+                        //     sec = 0; min = 0; hrs = 0;
+                        // }
 
                         var temp = location.href.split("?");
                         var set_time = temp[1].split(':')
@@ -189,12 +189,11 @@
 
                         set_hrs = set_hrs.replace(/(^0+)/,"");
                         set_min = set_min.replace(/(^0+)/,"");
-                        alert(set_min);
-                        if (set_hrs == hrs && set_min == min) {
-                            alert("경고경고")
-                        }
+
+                        setTime = (set_hrs * 3600 + set_min * 60) * 1000;
+                        setTimeout("alert('설정하신 사용 시간에 도달하였습니다.\\n가벼운 산책이나 스트레칭 어떠세요?')", setTime);
+
                     </script></li>
-                  <li></li>  <!--추가하고싶은 부분 추가해주세요 -->
               </ul>
           </div>
 
