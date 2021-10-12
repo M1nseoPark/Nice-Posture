@@ -1,4 +1,10 @@
-<h2>참고한 코드 및 영상</h2>
+# Nice-Posture
+
+### :computer: 시연영상
+<https://www.youtube.com/watch?v=2tl4Kcu_Cb0>   
+<br><br>   
+   
+### :computer: 얼굴 인식 모델 개발 - 참고한 코드 및 영상
 
 1)https://www.youtube.com/watch?v=xz9MvyKGYio&t=156s
 웹사이트에 실시간 영상 띄우기 (django/open cv)-> 터미널이 실행이 안됨/html 코드 알 수 없음
