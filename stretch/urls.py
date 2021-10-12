@@ -9,4 +9,5 @@ urlpatterns = [
     path('knee/', views.knee),
     path('back/', views.back),
     path('body/', views.body),
+    path('detail/', views.detail),
 ]

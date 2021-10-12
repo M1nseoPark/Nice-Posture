@@ -21,3 +21,6 @@ def back(request):
 
 def body(request):
     return render(request, 'stretch/body.html')
+
+def detail(request):
+    return render(request, 'stretch/detail.html')

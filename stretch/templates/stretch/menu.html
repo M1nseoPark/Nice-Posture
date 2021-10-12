@@ -46,64 +46,6 @@
     <!-- Custom styles for this template -->
     <link href="/static/detect/css/dashboard.css" rel="stylesheet">
 
-
-      <script type="text/javascript">
-        var time2 = 0;
-          function move() {
-        location.href = "../"
-      }
-
-        function inputTimeColon(time) {
-
-            // replace 함수를 사용하여 콜론( : )을 공백으로 치환한다.
-            var replaceTime = time.value.replace(/\:/g, "");
-
-            // 텍스트박스의 입력값이 4~5글자 사이가 되는 경우에만 실행한다.
-            if(replaceTime.length >= 4 && replaceTime.length < 5) {
-
-                var hours = replaceTime.substring(0, 2);      // 선언한 변수 hours에 시간값을 담는다.
-                var minute = replaceTime.substring(2, 4);    // 선언한 변수 minute에 분을 담는다.
-
-
-                // isFinite함수를 사용하여 문자가 선언되었는지 확인한다.
-                if(isFinite(hours + minute) == false) {
-                    alert("문자는 입력하실 수 없습니다.");
-                    time.value = "00:00";
-                    return false;
-                }
-
-                 // 두 변수의 시간과 분을 합쳐 입력한 시간이 24시가 넘는지를 체크한다.
-                if(hours + minute > 2400) {
-                    alert("시간은 24시를 넘길 수 없습니다.");
-                    time.value = "24:00";
-                    return false;
-                }
-
-
-                // 입력한 분의 값이 60분을 넘는지 체크한다.
-                if(minute > 60) {
-                    alert("분은 60분을 넘길 수 없습니다.");
-                    time.value = hours + ":00";
-                    return false;
-                }
-
-                time.value = hours + ":" + minute;
-                time2 = time.value;
-            }
-        }
-
-
-        // 값이 입력되었는지 체크, 설정값 전달
-        function check() {
-            if(!time2) {
-                alert("값을 입력해주세요");
-            }
-            else {
-                location.href = "../main?" + time2;
-            }
-        }
-
-    </script>
   </head>
 
   <body>
@@ -132,20 +74,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 
 
-     <div class="log-in" style="margin-bottom: 250px;">
-        <h1>스트레칭 부위</h1>
+     <div class="log-in" style="margin-bottom: 250px; font-family: 'Noto Sans KR';">
+        <h1 style="margin-bottom: 30px;">스트레칭 부위</h1>
 
         <p class="lead">
-            <a href="#" class="btn btn-lg btn-primary">자세 교정</a>
-            <a href="#" class="btn btn-lg btn-primary">목 및 어깨</a>
-            <a href="#" class="btn btn-lg btn-primary">허리</a>
-            <a href="#" class="btn btn-lg btn-primary">무릎</a>
-            <a href="#" class="btn btn-lg btn-primary">등</a>
-            <a href="#" class="btn btn-lg btn-primary">전신</a>
-
-
+            <a href="./posture/" class="btn btn-lg btn-primary">자세 교정</a>
+            <a href="./neck_shoulder/" class="btn btn-lg btn-primary">목 및 어깨</a>
+            <a href="./waist/" class="btn btn-lg btn-primary">허리</a>
+            <a href="./knee/" class="btn btn-lg btn-primary">무릎</a>
+            <a href="./back/" class="btn btn-lg btn-primary">등</a>
+            <a href="./body/" class="btn btn-lg btn-primary">전신</a>
         </p>
-
     </div>
 
 

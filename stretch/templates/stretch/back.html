@@ -1,163 +1,148 @@
-<!doctype html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Cover Template · Bootstrap v5.1</title>
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Stretch - Back</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'stretch/css/styles.css' %}" rel="stylesheet" />
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+        </style>
+    </head>
 
+    <body>
+        <!-- Responsive navbar-->
+        {% include 'stretch/navbar.html' %}
 
-
-    <!-- Bootstrap core CSS -->
-<link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <!-- Favicons -->
-<link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-<link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
-<meta name="theme-color" content="#7952b3">
-
-
-    <style>
-
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-      ul li{
-          list-style: none;
-      }
-      .nav-masthead .nav-link {
-            padding: .25rem 0;
-            font-weight: 700;
-            color: rgba(255, 255, 255, .5);
-            background-color: transparent;
-            border-bottom: .25rem solid transparent;
-    }
-
-    .nav-masthead .nav-link:hover,
-    .nav-masthead .nav-link:focus {
-            border-bottom-color: rgba(255, 255, 255, .25);
-    }
-
-    .nav-masthead .nav-link + .nav-link {
-            margin-left: 1rem;
-    }
-
-    .nav-masthead .active {
-            color: #fff;
-            border-bottom-color: #fff;
-    }
-
-    </style>
-
-
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  </head>
-  <body class="d-flex h-100 text-center text-white bg-dark">
-
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div>
-      <h3 class="float-md-start mb-0">NICE POSTURE</h3>
-      <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <!--메인페이지 연결해주세요!-->
-
-      </nav>
-    </div>
-  </header>
-<body>
-    <div class="row">
-<!--        스트레칭 영상, 제목, 설명-->
-        <div class="col-6" style="padding-left: 20px;">
-            <div id="video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/dllfZZp0k_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- Page Content-->
+        <div class="container px-4 px-lg-5" style="margin-top: 100px; font-family: 'Noto Sans KR';">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7" id="video">
+                    <iframe width="700" height="400" src="https://www.youtube.com/embed/dllfZZp0k_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="col-lg-5">
+                    <h4 id="title" style="font-weight: bold;">삼각 포즈 스트레칭</h4>
+                    <p id="explain">두 발을 어깨너비보다 살짝 더 넓게 벌린 자세로 서세요, 손바닥이 아래를 향하게 하고 두 팔을 어깨 높이만큼 옆으로 들어 올리세요.
+                        왼쪽 발은 왼쪽으로 오른발은 왼쪽으로 45도 각도로 돌리세요. 힙을 살짝 오른쪽으로 움직여 왼쪽 손이 바닥을 누를 때까지 상체를 왼쪽으로 굽히세요.
+                        오른쪽손을 천장을 향해 쭉 펴고 고개를 돌려 오른손을 바라보세요. 이자세를 유지하세요. 반대쪽으로 운동을 반복하세요.</p>
+                </div>
             </div>
-            <h3 id="title">삼각 포즈 스트레칭 test</h3>
-            <div id="explain">
-                <p>두 발을 어깨너비보다 살짝 더 넓게 벌린 자세로 서세요. 손바닥이 아래를 향하게 하고 두 팔을 어깨 높이만큼 옆으로 들어 올리세요.
-                왼쪽 발은 왼쪽으로 오른발은 왼쪽으로 45도 각도로 돌리세요. 힙을 살짝 오른쪽으로 움직여 왼쪽 손이 바닥을 누를 때까지 상체를 왼쪽으로 굽히세요.
-                오른쪽손을 천장을 향해 쭉 펴고 고개를 돌려 오른손을 바라보세요. 이자세를 유지하세요. 반대쪽으로 운동을 반복하세요.</p>
+            <hr>
+
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5" style="font-family: 'Noto Sans KR'; margin-top: 50px;">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title" style="font-weight: bold; margin-bottom: 15px;">삼각 포즈 스트레칭</h4>
+                            <p class="card-text" style="margin-bottom: 20px;">두 발을 어깨너비보다 살짝 더 넓게 벌린 자세로 서세요, 손바닥이 아래를 향하게 하고 두 팔을 어깨 높이만큼 옆으로 들어 올리세요.
+                        왼쪽 발은 왼쪽으로 오른발은 왼쪽으로 45도 각도로 돌리세요...</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-secondary btn-sm" onclick="change1()">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title" style="font-weight: bold; margin-bottom: 15px;">몸통 스트레칭</h4>
+                            <p class="card-text" style="margin-bottom: 20px;">땅에 서서 발을 어깨 넓이로 벌린 후 부드럽고 천천히 몸을 회전 시키세요.
+                                이 운동은 등과 힙을 스트레칭 시켜 줍니다.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-secondary btn-sm" onclick="change2()">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title" style="font-weight: bold; margin-bottom: 15px;">강아지 포즈 스트레칭</h4>
+                            <p class="card-text" style="margin-bottom: 20px;">네 발 자세로 시작해 무릎은 엉덩이 밑에, 손은 어깨 바로 밑에 오게 하세요.
+                                다리를 일자로 쭉 펴고 엉덩이를 들어 올려 거꾸로 된 V자 모양을 만드세요. 두 발을 벌리고 손가락을 벌리세요...</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-secondary btn-sm" onclick="change3()">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title" style="font-weight: bold; margin-bottom: 15px;">몸통 돌리기 스트레칭</h4>
+                            <p class="card-text" style="margin-bottom: 20px;">두 손을 마주 잡고 머리 위로 들어 올립니다. 두 팔로 시계 방향으로 큰 원을 그립니다.
+                                반대쪽으로 운동을 반복하세요.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-secondary btn-sm" onclick="change4()">More Info</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title" style="font-weight: bold; margin-bottom: 15px;">앉아서 척추 트위스트 스트레칭</h4>
+                            <p class="card-text" style="margin-bottom: 20px;">땅에 양반 다리로 앉으세요. 왼쪽 손을 오른쪽 무릎 위에 놓고 오른 손은 뒤로 바닥에 놓으세요.
+                                상체를 천천히 오른쪽으로 비트세요. 몇 초 동안 그 자세를 유지하세요. 반대쪽으로 운동을 반복하세요.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-secondary btn-sm" onclick="change4()">More Info</a></div>
+                    </div>
+                </div>
             </div>
         </div>
 
-<!--        스트레칭 목록-->
-        <div class="col-6">
-            <ul>
-                <li><a class="btn btn-lg btn-primary"  onclick="change1()">삼각 포즈 스트레칭</a></li><br>
-                <li><a class="btn btn-lg btn-primary"  onclick="change2()">몸통 스트레칭</a></li><br>
-                <li><a class="btn btn-lg btn-primary"  onclick="change3()">강아지 포즈 스트레칭</a></li><br>
-                <li><a class="btn btn-lg btn-primary"  onclick="change4()">몸통 돌리기 스트레칭</a></li><br>
-                <li><a class="btn btn-lg btn-primary"  onclick="change5()">앉아서 척추 트위스트</a></li><br>
-            </ul>
-        </div>
-    </div>
 
-  <footer class="mt-auto text-white-50">
-    <p>광주인공지능사관학교-난리나 </p>
-  </footer>
-</div>
-<!--    목록 누르면 내용 바뀌는 기능 자바스크립트로 구현-->
-    <script>
-        var video = document.getElementById("video");
-        var title = document.getElementById("title");
-        var explain = document.getElementById("explain");
+    <!--    목록 누르면 내용 바뀌는 기능 자바스크립트로 구현-->
+        <script>
+            var video = document.getElementById("video");
+            var title = document.getElementById("title");
+            var explain = document.getElementById("explain");
 
-        function change1() {
-            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dllfZZp0k_8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            title.innerHTML = "삼각 포즈 스트레칭"
-            explain.innerHTML = "<h5>두 발을 어깨너비보다 살짝 더 넓게 벌린 자세로 서세요, 손바닥이 아래를 향하게 하고 두 팔을 어깨 높이만큼 옆으로 들어 올리세요.</h5>\n" +
-                                "<h5>왼쪽 발은 왼쪽으로 오른발은 왼쪽으로 45도 각도로 돌리세요. 힙을 살짝 오른쪽으로 움직여 왼쪽 손이 바닥을 누를 때까지 상체를 왼쪽으로 굽히세요.\n</h5>\n" +
-                                "<h5>오른쪽손을 천장을 향해 쭉 펴고 고개를 돌려 오른손을 바라보세요. 이자세를 유지하세요. 반대쪽으로 운동을 반복하세요. </h5>"
-        }
+            function change1() {
+                video.innerHTML = "<iframe width=\"700\" height=\"400\" src=\"https://www.youtube.com/embed/dllfZZp0k_8\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+                title.innerHTML = "삼각 포즈 스트레칭"
+                explain.innerHTML = "두 발을 어깨너비보다 살짝 더 넓게 벌린 자세로 서세요, 손바닥이 아래를 향하게 하고 두 팔을 어깨 높이만큼 옆으로 들어 올리세요. " +
+                    "왼쪽 발은 왼쪽으로 오른발은 왼쪽으로 45도 각도로 돌리세요. 힙을 살짝 오른쪽으로 움직여 왼쪽 손이 바닥을 누를 때까지 상체를 왼쪽으로 굽히세요. " +
+                    "오른쪽손을 천장을 향해 쭉 펴고 고개를 돌려 오른손을 바라보세요. 이자세를 유지하세요. 반대쪽으로 운동을 반복하세요."
+            }
 
-        function change2() {
-            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/f4Qah0bQTIo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            title.innerHTML = "몸통 스트레칭"
-            explain.innerHTML = "<h5>땅에 서서 발을 어깨 넓이로 벌린 후 부드럽고 천천히 몸을 회전 시키세요.</h5>\n" +
-                                "<h5>이 운동은 등과 힙을 스트레칭 시켜 줍니다.</h5>"
-        }
+            function change2() {
+                video.innerHTML = "<iframe width=\"700\" height=\"400\" src=\"https://www.youtube.com/embed/f4Qah0bQTIo\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+                title.innerHTML = "몸통 스트레칭"
+                explain.innerHTML = "땅에 서서 발을 어깨 넓이로 벌린 후 부드럽고 천천히 몸을 회전 시키세요. " +
+                    "이 운동은 등과 힙을 스트레칭 시켜 줍니다."
+            }
 
-        function change3() {
-            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/EC7RGJ975iM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            title.innerHTML = "강아지 포즈 스트레칭"
-            explain.innerHTML = "<h5>네 발 자세로 시작해 무릎은 엉덩이 밑에, 손은 어깨 바로 밑에 오게 하세요.</h5>\n" +
-                                "<h5>다리를 일자로 쭉 펴고 엉덩이를 들어 올려 거꾸로 된 V자 모양을 만드세요.</h5>\n" +
-                                "<h5>두 발을 벌리고 손가락을 벌리세요. 체중을 다시 다리로 옮기세요. 이자세를 유지하세요.</h5>"
-        }
+            function change3() {
+                video.innerHTML = "<iframe width=\"700\" height=\"400\" src=\"https://www.youtube.com/embed/EC7RGJ975iM\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+                title.innerHTML = "강아지 포즈 스트레칭"
+                explain.innerHTML = "네 발 자세로 시작해 무릎은 엉덩이 밑에, 손은 어깨 바로 밑에 오게 하세요. " +
+                    "다리를 일자로 쭉 펴고 엉덩이를 들어 올려 거꾸로 된 V자 모양을 만드세요. 두 발을 벌리고 손가락을 벌리세요. " +
+                    "체중을 다시 다리로 옮기세요. 이자세를 유지하세요."
+            }
 
-        function change4() {
-            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/xnfdgHZXZ9Y\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            title.innerHTML = "몸통 돌리기 스트레칭"
-            explain.innerHTML = "<h5>두 손을 마주 잡고 머리 위로 들어 올립니다. 두 팔로 시계 방향으로 큰 원을 그립니다.</h5>\n" +
-                                "<h5>반대쪽으로 운동을 반복하세요.</h5>"
-        }
+            function change4() {
+                video.innerHTML = "<iframe width=\"700\" height=\"400\" src=\"https://www.youtube.com/embed/xnfdgHZXZ9Y\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+                title.innerHTML = "몸통 돌리기 스트레칭"
+                explain.innerHTML = "두 손을 마주 잡고 머리 위로 들어 올립니다. 두 팔로 시계 방향으로 큰 원을 그립니다. " +
+                    "반대쪽으로 운동을 반복하세요."
+            }
 
-        function change5() {
-            video.innerHTML = "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/7CKr-RgOcIc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
-            title.innerHTML = "앉아서 척추 트위스트 스트레칭"
-            explain.innerHTML = "<h5>땅에 양반 다리로 앉으세요. 왼쪽 손을 오른쪽 무릎 위에 놓고 오른 손은 뒤로 바닥에 놓으세요.</h5>\n" +
-                                "<h5>상체를 천천히 오른쪽으로 비트세요. 몇 초 동안 그 자세를 유지하세요. 반대쪽으로 운동을 반복하세요.</h5>"
-        }
-    </script>
-</body>
+            function change5() {
+                video.innerHTML = "<iframe width=\"700\" height=\"400\" src=\"https://www.youtube.com/embed/7CKr-RgOcIc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+                title.innerHTML = "앉아서 척추 트위스트 스트레칭"
+                explain.innerHTML = "땅에 양반 다리로 앉으세요. 왼쪽 손을 오른쪽 무릎 위에 놓고 오른 손은 뒤로 바닥에 놓으세요. " +
+                    "상체를 천천히 오른쪽으로 비트세요. 몇 초 동안 그 자세를 유지하세요. 반대쪽으로 운동을 반복하세요."
+            }
+        </script>
+
+        <!-- Footer-->
+        {% include 'stretch/footer.html' %}
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/static/stretch/js/scripts.js"></script>
+    </body>
 </html>
