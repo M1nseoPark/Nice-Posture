@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Dashboard Template · Bootstrap v5.1</title>
+    <title>Use</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
 
@@ -29,6 +29,11 @@
         user-select: none;
       }
 
+      .log-in {
+        margin-top: 20%;
+        text-align: center;
+      }
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -36,31 +41,26 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
     <link href="{% static 'detect/css/dashboard.css' %}" rel="stylesheet">
+
+    <script>
+      function move() {
+        location.href = "../"
+      }
+    </script>
   </head>
 
   <body>
     
-    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
-      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-      <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-          <a class="nav-link px-3" href="#">Sign out</a>
-        </div>
-      </div>
-    </header>
+    {% include 'detect/navbar.html' %}
 
-    <div class="container-fluid">
+    {% if user.is_authenticated %}
+    <div class="container-fluid" style="margin-bottom: 200px; margin-top: 70px; font-family:'Noto Sans KR';">
       <div class="row" style="padding-left: 30px;">
         <main class="ms-sm-auto px-md-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3 border-bottom">
-            <h1 class="h2">님의 컴퓨터 이용시간</h1>
+            <h1 class="h2">{{ user }}님의 컴퓨터 이용시간</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group me-2" style="padding-right: 10px;">
                 <button type="button" class="btn btn-sm btn-outline-secondary">이용시간</button>
@@ -78,7 +78,15 @@
         </main>
       </div>
     </div>
+    {% else %}
+    <div class="log-in" style="margin-bottom: 250px;">
+      <h3>로그인이 필요합니다</h3>
+      <button type="button" class="btn btn-dark" style="margin-top: 10px;" onclick="move()">메인으로</button>
+    </div>
+    {% endif %}
 
+
+    {% include 'detect/footer.html' %}
 
     <script src="{% static 'detect/bootstrap/bootstrap.bundle.min.js' %}"></script>
 
