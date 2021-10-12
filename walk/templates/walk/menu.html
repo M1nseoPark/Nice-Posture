@@ -1,9 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
+{% load static %}
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <title>산책로 추천</title>
-    <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Menu</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'walk/bootstrap/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+      body {
+        font-family: 'Noto Sans KR';
+      }
+
+      .park-info {
+          text-align: center;
+          padding-bottom: 20px;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7yUrMo4NRmNvcF_vyxBoHuZsikOgqz7Q"></script>
     <script>
         var latitude = 0;
@@ -73,87 +110,172 @@
         //
         //     dataTable.style.visibility = "hidden";  // html 테이블 숨기기
         // }
-        //
-        //
-        // window.onload = function () {
-        //     dataSort();
-        //
-        //     document.getElementById("name1").innerHTML = result[0]['name'];
-        //     document.getElementById("address1").innerHTML = result[0]['address'];
-        //     document.getElementById("distance1").innerHTML = result[0]['distance'] + " km";
-        //     document.getElementById("image1").src = result[0]['image'];
-        //
-        //     document.getElementById("name2").innerHTML = result[1]['name'];
-        //     document.getElementById("address2").innerHTML = result[1]['address'];
-        //     document.getElementById("distance2").innerHTML = result[1]['distance'] + " km";
-        //     document.getElementById("image2").src = result[1]['image'];
-        //
-        //     document.getElementById("name3").innerHTML = result[2]['name'];
-        //     document.getElementById("address3").innerHTML = result[2]['address'];
-        //     document.getElementById("distance3").innerHTML = result[2]['distance'] + " km";
-        //     document.getElementById("image3").src = result[2]['image'];
-        //
-        //     document.getElementById("name4").innerHTML = result[3]['name'];
-        //     document.getElementById("address4").innerHTML = result[3]['address'];
-        //     document.getElementById("distance4").innerHTML = result[3]['distance'] + " km";
-        //     document.getElementById("image4").src = result[3]['image'];
-        //
-        //     document.getElementById("name5").innerHTML = result[4]['name'];
-        //     document.getElementById("address5").innerHTML = result[4]['address'];
-        //     document.getElementById("distance5").innerHTML = result[4]['distance'] + " km";
-        //     document.getElementById("image5").src = result[4]['image'];
-        // }
     </script>
-</head>
-<body>
+  </head>
 
-<!--    <h1>산책로 추천</h1>-->
+  <body>
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                  <h4 class="text-white">About</h4>
+                  <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                  <h4 class="text-white">Contact</h4>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                    <li><a href="#" class="text-white">Like on Facebook</a></li>
+                    <li><a href="#" class="text-white">Email me</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+              <a href="#" class="navbar-brand d-flex align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <strong>Album</strong>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+          </div>
+    </header>
 
-<!--    <div>-->
-<!--        <h4 id="name1">name</h4>-->
-<!--        <h4 id="address1">address</h4>-->
-<!--        <h4 id="distance1">distance</h4>-->
-<!--        <image id="image1" src="*" width="300"></image>-->
-<!--    </div>-->
+    <main>
+        <!--  머리말-->
+          <section class="py-2 text-center container">
+            <div class="row py-lg-5">
+              <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">산책로 추천</h1>
+                <p class="lead text-muted" style="padding-top: 20px">기분전환 겸 가볍게 산책 어떠세요?<br>목적지가 있는 산책은 어떠신가요?<br>근처 공원을 몇 군데 골라봤어요</p>
+              </div>
+            </div>
+          </section>
 
-<!--    <div>-->
-<!--        <h4 id="name2">name</h4>-->
-<!--        <h4 id="address2">address</h4>-->
-<!--        <h4 id="distance2">distance</h4>-->
-<!--        <image id="image2" src="*" width="300"></image>-->
-<!--    </div>-->
+          <div class="album py-5 bg-light">
+            <div class="container">
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <!--        첫번째 장소-->
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <image id="image1" src="*" class="bd-placeholder-img card-img-top" width="100%" height="225"></image>
 
-<!--    <div>-->
-<!--        <h4 id="name3">name</h4>-->
-<!--        <h4 id="address3">address</h4>-->
-<!--        <h4 id="distance3">distance</h4>-->
-<!--        <image id="image3" src="*" width="300"></image>-->
-<!--    </div>-->
+                    <div class="card-body">
+                      <div class="park-info">
+                        <h5 class="card-text" style="font-weight: bold;" id="name1">name</h5>
+                        <p class="card-text" id="address1">address</p>
+                      </div>
+                      <small id="distance1" style="padding-left: 330px" class="text-muted">distance</small>
+                    </div>
+                  </div>
+                </div>
 
-<!--    <div>-->
-<!--        <h4 id="name4">name</h4>-->
-<!--        <h4 id="address4">address</h4>-->
-<!--        <h4 id="distance4">distance</h4>-->
-<!--        <image id="image4" src="*" width="300"></image>-->
-<!--    </div>-->
+        <!--        두번째 장소-->
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <image id="image2" src="*" class="bd-placeholder-img card-img-top" width="100%" height="225"></image>
 
-<!--    <div>-->
-<!--        <h4 id="name5">name</h4>-->
-<!--        <h4 id="address5">address</h4>-->
-<!--        <h4 id="distance5">distance</h4>-->
-<!--        <image id="image5" src="*" width="300"></image>-->
-<!--    </div>-->
+                    <div class="card-body">
+                      <div class="park-info">
+                        <h5 id="name2" class="card-text" style="font-weight: bold;">name</h5>
+                        <p class="card-text" id="address2">address</p>
+                      </div>
+                      <small id="distance2" style="padding-left: 330px" class="text-muted">distance</small>
+                    </div>
+                  </div>
+                </div>
+
+        <!--        세번째 장소  -->
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <image id="image3" src="*" class="bd-placeholder-img card-img-top" width="100%" height="225"></image>
+
+                    <div class="card-body">
+                      <div class="park-info">
+                        <h5 class="card-text" style="font-weight: bold;" id="name3">name</h5>
+                        <p class="card-text" id="address3">address</p>
+                      </div>
+                      <small id="distance3" style="padding-left: 330px" class="text-muted">distance</small>
+                    </div>
+                  </div>
+                </div>
+
+        <!--        네번째 장소-->
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <image id="image4" src="*" class="bd-placeholder-img card-img-top" width="100%" height="225"></image>
+
+                    <div class="card-body">
+                      <div class="park-info">
+                        <h5 class="card-text" style="font-weight: bold;" id="name4">name</h5>
+                        <p class="card-text" id="address4">address</p>
+                      </div>
+                      <small id="distance4" style="padding-left: 330px" class="text-muted">distance</small>
+                    </div>
+                  </div>
+                </div>
+
+        <!--        다섯번째 장소  -->
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <image id="image5" src="*" class="bd-placeholder-img card-img-top" width="100%" height="225"></image>
+
+                    <div class="card-body">
+                      <div class="park-info">
+                        <h5 class="card-text" style="font-weight: bold;" id="name5">name</h5>
+                        <p class="card-text" id="address5">address</p>
+                      </div>
+                      <small id="distance5" style="padding-left: 330px" class="text-muted">distance</small>
+                    </div>
+                  </div>
+                </div>
+
+        <!--        여섯번째 장소  -->
+                <div class="col">
+                  <div class="card shadow-sm">
+                    <image id="image6" src="*" class="bd-placeholder-img card-img-top" width="100%" height="225"></image>
+
+                    <div class="card-body">
+                      <div class="park-info">
+                        <h5 class="card-text" style="font-weight: bold;" id="name6">name</h5>
+                        <p class="card-text" id="address6">address</p>
+                      </div>
+                      <small id="distance6" style="padding-left: 330px" class="text-muted">distance</small>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+    </main>
+
+        <footer class="text-muted py-5">
+          <div class="container">
+            <p class="float-end mb-1">
+              <a href="#">Back to top</a>
+            </p>
+            <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+            <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+          </div>
+        </footer>
 
 
-<!--    <table id="dataTable">-->
-<!--        <tr>-->
-<!--            <th>name</th>-->
-<!--            <th>address</th>-->
-<!--            <th>latitude</th>-->
-<!--            <th>longitude</th>-->
-<!--            <th>image</th>-->
-<!--        </tr>-->
-<!--        {% for p in parks %}-->
+        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<!--        <table id="dataTable">-->
+<!--            <tr>-->
+<!--                <th>name</th>-->
+<!--                <th>address</th>-->
+<!--                <th>latitude</th>-->
+<!--                <th>longitude</th>-->
+<!--                <th>image</th>-->
+<!--            </tr>-->
+<!--            {% for p in parks %}-->
 <!--            <tr>-->
 <!--                <td>{{p.name}}</td>-->
 <!--                <td>{{p.address}}</td>-->
@@ -161,8 +283,43 @@
 <!--                <td>{{p.longitude}}</td>-->
 <!--                <td>{{p.image}}</td>-->
 <!--            </tr>-->
-<!--        {%endfor%}-->
-<!--    </table>-->
+<!--            {%endfor%}-->
+<!--        </table>-->
 
-</body>
+    <script>
+        window.onload = function () {
+            dataSort();
+
+            document.getElementById("name1").innerHTML = result[0]['name'];
+            document.getElementById("address1").innerHTML = result[0]['address'];
+            document.getElementById("distance1").innerHTML = result[0]['distance'] + " km";
+            document.getElementById("image1").src = result[0]['image'];
+
+            document.getElementById("name2").innerHTML = result[1]['name'];
+            document.getElementById("address2").innerHTML = result[1]['address'];
+            document.getElementById("distance2").innerHTML = result[1]['distance'] + " km";
+            document.getElementById("image2").src = result[1]['image'];
+
+            document.getElementById("name3").innerHTML = result[2]['name'];
+            document.getElementById("address3").innerHTML = result[2]['address'];
+            document.getElementById("distance3").innerHTML = result[2]['distance'] + " km";
+            document.getElementById("image3").src = result[2]['image'];
+
+            document.getElementById("name4").innerHTML = result[3]['name'];
+            document.getElementById("address4").innerHTML = result[3]['address'];
+            document.getElementById("distance4").innerHTML = result[3]['distance'] + " km";
+            document.getElementById("image4").src = result[3]['image'];
+
+            document.getElementById("name5").innerHTML = result[4]['name'];
+            document.getElementById("address5").innerHTML = result[4]['address'];
+            document.getElementById("distance5").innerHTML = result[4]['distance'] + " km";
+            document.getElementById("image5").src = result[4]['image'];
+
+            document.getElementById("name6").innerHTML = result[5]['name'];
+            document.getElementById("address6").innerHTML = result[5]['address'];
+            document.getElementById("distance6").innerHTML = result[5]['distance'] + " km";
+            document.getElementById("image6").src = result[5]['image'];
+        }
+    </script>
+  </body>
 </html>
